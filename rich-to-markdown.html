@@ -385,8 +385,9 @@
         inputArea.addEventListener('paste', function(e) {
             setTimeout(() => {
                 convertToMarkdown();
-                // Scroll output area into view
-                document.getElementById('output-area').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                // Scroll to the buttons at the bottom of the output panel
+                const outputPanel = document.querySelector('.panel:not(.panel-left)');
+                outputPanel.scrollIntoView({ behavior: 'smooth', block: 'end' });
             }, 100);
         });
     </script>
