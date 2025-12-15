@@ -89,6 +89,14 @@
             outline: none;
             transition: border-color 0.3s;
             overflow-y: auto;
+            max-height: 600px;
+        }
+        
+        /* Normalize pasted content to prevent font size/style inheritance */
+        #input-area * {
+            font-size: 16px !important;
+            font-family: inherit !important;
+            line-height: 1.6 !important;
         }
         
         #input-area:focus {
@@ -377,6 +385,8 @@
         inputArea.addEventListener('paste', function(e) {
             setTimeout(() => {
                 convertToMarkdown();
+                // Scroll output area into view
+                document.getElementById('output-area').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }, 100);
         });
     </script>
